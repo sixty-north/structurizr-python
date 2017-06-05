@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 
+from orderedset import OrderedSet
+
 
 class Taggable(ABC):
 
     def __init__(self):
-        self._tags = set()  # TODO: This needs to be an OrderedSet
+        self._tags = OrderedSet()
 
     @abstractmethod
     def get_required_tags(self):
