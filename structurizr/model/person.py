@@ -14,12 +14,15 @@ class Person(Element):
     def get_parent(self):
         return None
 
+    # TODO: This is duplicated in SoftwareSystem
     def get_location(self):
         return self._location
 
+    # TODO: This is duplicated in SoftwareSystem
     def set_location(self, location):
         self._location = location if location is not None else Location.UNSPECIFIED
 
+    # TODO: This is duplicated in SoftwareSystem
     def get_canonical_name(self):
         return CANONICAL_NAME_SEPARATOR + self._format_for_canonical_name(self.get_name())
 
