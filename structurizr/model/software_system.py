@@ -1,5 +1,6 @@
 from orderedset import OrderedSet
 
+from structurizr.model import tags
 from structurizr.model.element import Element, CANONICAL_NAME_SEPARATOR
 from structurizr.model.location import Location
 
@@ -40,3 +41,6 @@ class SoftwareSystem(Element):
     # TODO: This is duplicated in Person
     def get_canonical_name(self):
         return CANONICAL_NAME_SEPARATOR + self._format_for_canonical_name(self.get_name())
+
+    def get_required_tags(self):
+        return OrderedSet([tags.ELEMENT, tags.SOFTWARE_SYSTEM])
