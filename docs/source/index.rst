@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Structurizr Python's documentation!
-==============================================
+Structurizr Python
+==================
 
 .. toctree::
    :maxdepth: 2
