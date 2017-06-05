@@ -130,3 +130,6 @@ class Element(Taggable):
             return NotImplemented
 
         return self.get_canonical_name() == rhs.get_canonical_name()
+
+    def __ne__(self, rhs):
+        return not (self == rhs)
