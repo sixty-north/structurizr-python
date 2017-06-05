@@ -41,7 +41,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/sixty-north/structurizr',
+    url='https://github.com/sixty-north/structurizr-python',
 
     # Author details
     author='Sixty North AS',
