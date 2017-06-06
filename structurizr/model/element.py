@@ -33,7 +33,7 @@ class Element(Taggable):
     def get_id(self):
         return self._id
 
-    def set_id(self):
+    def set_id(self, id):
         self._id = id
 
     def get_name(self):

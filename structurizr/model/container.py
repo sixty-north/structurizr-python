@@ -1,6 +1,7 @@
 from orderedset import OrderedSet
 
 from structurizr.model import tags
+from structurizr.model.component import Component
 from structurizr.model.element import Element, CANONICAL_NAME_SEPARATOR
 from structurizr.model.software_system import SoftwareSystem
 
@@ -16,9 +17,10 @@ class Container(Element):
     def get_parent(self):
         return self._parent
 
+    # TODO: Argument (method, even) would be better named software_system
     def set_parent(self, parent):
-        if not isinstance(parent, SoftwareSystem):
-            raise TypeError("The parent of a container must be a SoftwareSystem.")
+        if not isinstance(parent, Component):
+            raise TypeError("{!r} is not an {}".format(parent, SoftwareSystem.__name__))
         self._parent = parent
 
     def get_software_system(self):
@@ -26,6 +28,9 @@ class Container(Element):
 
     def get_technology(self):
         return self._technology
+
+    def set_technology(self, technology):
+        self._technology = technology
 
     def add_component(self, name, description, technology=None):
         c = self.get_model().add_component(self, name, description)
@@ -39,6 +44,8 @@ class Container(Element):
         return self.get_model().add_component_of_type(self, name, obj, description, technology)
 
     def add_existing_component(self, component):
+        if not isinstance(component, Component):
+            raise TypeError("{!r} is not an {}".format(component, Component.__name__))
         # TODO: _components is a set, so we can't add it twice anyway, so isn't this check redundant
         # TODO: If Element.__hash__ was defined, we could probably do away with this check
         if self.get_component_with_name(component.get_name()) is None:

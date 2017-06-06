@@ -20,6 +20,8 @@ class Person(Element):
 
     # TODO: This is duplicated in SoftwareSystem
     def set_location(self, location):
+        if not isinstance(location, Location):
+            raise TypeError("{!r} is not a {}".format(location, Location.__name__))
         self._location = location if location is not None else Location.UNSPECIFIED
 
     # TODO: This is duplicated in SoftwareSystem

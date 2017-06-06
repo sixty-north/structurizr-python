@@ -22,6 +22,7 @@ class Component(Element):
         self._parent = parent
 
     def get_container(self):
+        # Can't components be nested?
         return self.get_parent()
 
     # TODO: Java original says null if not specified, but implementation will return an empty string.
@@ -45,6 +46,7 @@ class Component(Element):
         return self._code_elements
 
     def set_code_elements(self, code_elements):
+        # TODO: Replacing the internal collection rather than replacing contents?
         self._code_elements = code_elements
 
     def add_supporting_type(self, type_name):
@@ -57,6 +59,7 @@ class Component(Element):
         return self._size
 
     def set_size(self, size):
+        # TODO: Validation?
         self._size = size
 
     def get_package(self):

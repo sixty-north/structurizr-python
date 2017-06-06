@@ -1,6 +1,7 @@
 from orderedset import OrderedSet
 
 from structurizr.model import tags
+from structurizr.model.container import Container
 from structurizr.model.element import Element, CANONICAL_NAME_SEPARATOR
 from structurizr.model.location import Location
 
@@ -21,9 +22,13 @@ class SoftwareSystem(Element):
 
     # TODO: This is duplicated in Person
     def set_location(self, location):
+        if not isinstance(location, Location):
+            raise TypeError("{!r} is not a {}".format(location, Location.__name__))
         self._location = location if location is not None else Location.UNSPECIFIED
 
     def add_existing_container(self, container):
+        if not isinstance(container, Container):
+            raise TypeError("{!r} is not a {}".format(container, Container.__name__))
         self._containers.add(container)
 
     def get_containers(self):
