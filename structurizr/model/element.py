@@ -122,6 +122,10 @@ class Element(Taggable):
             name=self.get_name(),
             description=self.get_description())
 
+    # TODO: We should probably override __hash__ here too. Java has the same rule that if you
+    # TODO: override .equals() you must ensure objects have the same .hashCode(), although the
+    # TODO: Java Structurizr does not do this. Possibly an upstream bug.
+
     def __eq__(self, rhs):
         if self is rhs:
             return True
