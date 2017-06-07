@@ -17,3 +17,6 @@ Build status:
 .. image:: https://readthedocs.org/projects/structurizr-for-python/badge/?version=latest
     :target: http://structurizr-for-python.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
+
+.. image:: https://badge.fury.io/py/structurizr.svg
+    :target: https://badge.fury.io/py/structurizr
