@@ -1,9 +1,7 @@
 from orderedset import OrderedSet
 
 from structurizr.model import tags
-from structurizr.model.component import Component
 from structurizr.model.element import Element, CANONICAL_NAME_SEPARATOR
-from structurizr.model.software_system import SoftwareSystem
 
 
 class Container(Element):
@@ -19,7 +17,8 @@ class Container(Element):
 
     # TODO: Argument (method, even) would be better named software_system
     def set_parent(self, parent):
-        if not isinstance(parent, Component):
+        from structurizr.model.software_system import SoftwareSystem
+        if not isinstance(parent, SoftwareSystem):
             raise TypeError("{!r} is not an {}".format(parent, SoftwareSystem.__name__))
         self._parent = parent
 
@@ -44,6 +43,7 @@ class Container(Element):
         return self.get_model().add_component_of_type(self, name, obj, description, technology)
 
     def add_existing_component(self, component):
+        from structurizr.model.component import Component
         if not isinstance(component, Component):
             raise TypeError("{!r} is not an {}".format(component, Component.__name__))
         # TODO: _components is a set, so we can't add it twice anyway, so isn't this check redundant

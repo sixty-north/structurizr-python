@@ -1,7 +1,6 @@
 from orderedset import OrderedSet
 
 from structurizr.model import tags
-from structurizr.model.container import Container
 from structurizr.model.element import Element, CANONICAL_NAME_SEPARATOR
 from structurizr.model.location import Location
 
@@ -27,6 +26,7 @@ class SoftwareSystem(Element):
         self._location = location if location is not None else Location.UNSPECIFIED
 
     def add_existing_container(self, container):
+        from structurizr.model.container import Container
         if not isinstance(container, Container):
             raise TypeError("{!r} is not a {}".format(container, Container.__name__))
         self._containers.add(container)

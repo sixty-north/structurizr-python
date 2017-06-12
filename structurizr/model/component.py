@@ -19,6 +19,9 @@ class Component(Element):
         return self._parent
 
     def set_parent(self, parent):
+        from structurizr.model.container import Container
+        if not isinstance(parent, Container):
+            raise TypeError("{!r} is not an {}".format(parent, Container.__name__))
         self._parent = parent
 
     def get_container(self):
